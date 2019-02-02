@@ -1,40 +1,35 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import CharacterSheet from './CharacterSheet';
+import Family from './Models/Family/family'
 
 export default class App extends React.Component {
   constructor(){
     super()
     this.state={
-      dons:[]
+      families:[]
     }
   }
   render() {
     return (
       <View style={styles.container}>
-        <Text>Welcome to the game Don {this.state.dons[0].sirname}!</Text>
-        <CharacterSheet/>
+        <Text>Welcome to the game Don {this.state.families[0].don.name +
+          ' ' + this.state.families[0].surname}!</Text>
+        <CharacterSheet family =  {this.state.families[0]}/>
       </View>
     );
   }
   componentWillMount=()=>{
-    this.generateNewPerson('boi');
-
+    this.generateFamily('boi');
+    
   }
-  generateNewPerson=(sirname)=>{
+  generateFamily=(surname)=>{
+    let family = new Family('Corle',surname)
 
-    let member = {
-      'sirname':"Consegri",
-      'brains': 9,
-      'brawn': 10,
-      'charm': 11,
-      'guts':12,
-      'wit':13
-    }
-    let array = this.state.dons
-    array.push(member)
+    let array = this.state.families
+    array.push(family)
     this.setState({
-      dons: array
+      families: array
     })
 
   }

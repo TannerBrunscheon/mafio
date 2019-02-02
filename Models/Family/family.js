@@ -1,13 +1,13 @@
+import Mobster from '../Mobster/mobster';
 export default class Family{
-don;
+    don;
     underBoss;
     caporegimie = {
-
     };
     soldiers
-
-    constructor(don){
-        this.don = don;
+    constructor(name,surname){
+        this.don = new Mobster(name);
+        this.surname = surname;
     }
     add(mobster){
         if(!this.don){
@@ -22,6 +22,7 @@ don;
             this.caporegimie[mobster.name] = {mobster : []}
             return
         }
+
         leastSoldiers = 10000000;
         mobsterOf ;
         for(let key in this.caporegimie){

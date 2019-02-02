@@ -8,7 +8,7 @@ export default class CharacterSheet extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Test</Text>
+        <Text>{this.props.family.surname}</Text>
       </View>
     );
   }
